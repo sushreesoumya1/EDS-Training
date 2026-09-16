@@ -12,7 +12,7 @@ export default function decorate(block) {
 
   // Resolve background color (default to blue)
   const bgColor = bgColorRow ? bgColorRow.textContent.trim() : '';
-  block.style.backgroundColor = bgColor || 'blue';
+  block.style.backgroundColor = bgColor || 'crimson';
 
   // Build image wrapper
   const imageWrapper = document.createElement('div');
