@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    {
+      "id": "library",
+      "title": "Block Library",
+      "environments": ["edit"],
+      "url": "https://main--eds-training--sushreesoumya1.aem.page/tools/sidekick/library",
+      "includePaths": ["**.docx**", "**.md", "/"],
+      "passConfig": true,
+      "passReferrer": true
+    }
+  ],
+  "library": {
+    "source": [
+      "/tools/sidekick/library.json"
+    ]
+  }
+}
