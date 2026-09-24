@@ -134,17 +134,17 @@
     width: 83%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 32px 56px;
+    padding: 20px 56px;
   }
 
   .carousel-hero .carousel-hero-content h2 {
-    font-size: var(--heading-font-size-xxl);
-    margin: 0 0 20px;
+    font-size: var(--heading-font-size-xl);
+    margin: 0 0 12px;
   }
 
   .carousel-hero .carousel-hero-content p {
     font-size: var(--body-font-size-m);
-    margin: 0 0 28px;
+    margin: 0 0 16px;
   }
 
   /* pull arrows up onto the dots band, aligned right */
