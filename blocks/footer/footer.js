@@ -18,10 +18,11 @@ export default async function decorate(block) {
     fragment = await loadFragment('/footer');
   }
 
-  // normalize relative image paths (e.g. "images/logo.svg") to root-absolute
+  // normalize bare relative image paths (e.g. "images/logo.svg") to root-absolute.
+  // Leave DA-processed paths ("./media_...") and already-absolute/external paths alone.
   fragment.querySelectorAll('img[src]').forEach((img) => {
     const src = img.getAttribute('src');
-    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
+    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/') && !src.startsWith('./')) {
       img.setAttribute('src', `/${src}`);
     }
   });
