@@ -43,11 +43,12 @@ export default function decorate(block) {
 
   let current = 0;
   const show = (idx) => {
+    const next = (idx + slides.length) % slides.length;
     slides[current].setAttribute('aria-hidden', 'true');
-    slides[idx].removeAttribute('aria-hidden');
-    [...nav.children].forEach((d, di) => d.setAttribute('aria-selected', di === idx ? 'true' : 'false'));
-    track.style.transform = `translateX(-${idx * 100}%)`;
-    current = idx;
+    slides[next].removeAttribute('aria-hidden');
+    [...nav.children].forEach((d, di) => d.setAttribute('aria-selected', di === next ? 'true' : 'false'));
+    track.style.transform = `translateX(-${next * 100}%)`;
+    current = next;
   };
 
   slides.forEach((_, i) => {
@@ -62,4 +63,22 @@ export default function decorate(block) {
   });
 
   block.append(nav);
+
+  // prev/next arrows (bottom-right, like WKND)
+  const arrows = document.createElement('div');
+  arrows.className = 'carousel-hero-arrows';
+  const prev = document.createElement('button');
+  prev.type = 'button';
+  prev.className = 'carousel-hero-arrow carousel-hero-arrow-prev';
+  prev.setAttribute('aria-label', 'Previous slide');
+  prev.innerHTML = '<span aria-hidden="true">&#8592;</span>';
+  prev.addEventListener('click', () => show(current - 1));
+  const next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'carousel-hero-arrow carousel-hero-arrow-next';
+  next.setAttribute('aria-label', 'Next slide');
+  next.innerHTML = '<span aria-hidden="true">&#8594;</span>';
+  next.addEventListener('click', () => show(current + 1));
+  arrows.append(prev, next);
+  block.append(arrows);
 }

@@ -124,7 +124,15 @@ function decorateButtons(main) {
     // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    if (!strong && !em) return;
+    if (!strong && !em) {
+      // WKND: a standalone link that is the sole content of its paragraph and
+      // sits in default content (outside a block) becomes an accent CTA button.
+      if (!a.closest('.block') && p.childElementCount === 1) {
+        p.className = 'button-wrapper';
+        a.className = 'button accent';
+      }
+      return;
+    }
 
     p.className = 'button-wrapper';
     a.className = 'button';
