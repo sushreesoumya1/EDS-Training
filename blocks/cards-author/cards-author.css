@@ -44,11 +44,17 @@
 }
 
 .cards-author .cards-author-social a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-color);
-  font-size: var(--body-font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   text-decoration: none;
+}
+
+.cards-author .cards-author-social a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentcolor;
 }
 
 .cards-author .cards-author-social a:hover {
