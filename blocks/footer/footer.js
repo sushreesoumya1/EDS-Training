@@ -1,4 +1,5 @@
 import { loadFragment } from '../fragment/fragment.js';
+import { removeHtmlExtension } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
@@ -38,6 +39,9 @@ export default async function decorate(block) {
   classes.forEach((c, i) => {
     if (footer.children[i]) footer.children[i].classList.add(c);
   });
+
+  // internal links use extensionless URLs on EDS
+  removeHtmlExtension(footer);
 
   block.append(footer);
 }

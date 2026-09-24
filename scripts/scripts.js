@@ -155,12 +155,32 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
+/**
+ * Strips the `.html` extension from internal links so they resolve on EDS,
+ * which serves pages extensionless. External links are left untouched.
+ * @param {Element} container The element whose links should be normalized
+ */
+export function removeHtmlExtension(container) {
+  container.querySelectorAll('a[href]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href) return;
+    try {
+      const url = new URL(href, window.location.href);
+      if (url.origin === window.location.origin && url.pathname.endsWith('.html')) {
+        url.pathname = url.pathname.slice(0, -'.html'.length);
+        a.setAttribute('href', url.pathname + url.search + url.hash);
+      }
+    } catch { /* leave malformed hrefs alone */ }
+  });
+}
+
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  removeHtmlExtension(main);
 }
 
 /**

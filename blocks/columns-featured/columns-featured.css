@@ -59,11 +59,16 @@
   .columns-featured > div {
     flex-direction: row;
     align-items: center;
-    gap: 48px;
+    gap: 56px;
   }
 
-  .columns-featured .columns-featured-image,
+  /* WKND proportions: image ~61%, content ~37% */
+  .columns-featured .columns-featured-image {
+    flex: 0 0 61%;
+  }
+
   .columns-featured .columns-featured-content {
     flex: 1;
+    padding-right: 24px;
   }
 }

@@ -1,4 +1,5 @@
 import { loadFragment } from '../fragment/fragment.js';
+import { removeHtmlExtension } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -208,6 +209,9 @@ export default async function decorate(block) {
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
+  // internal links use extensionless URLs on EDS
+  removeHtmlExtension(nav);
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
