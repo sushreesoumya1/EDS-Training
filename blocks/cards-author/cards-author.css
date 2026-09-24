@@ -1,0 +1,68 @@
+.cards-author ul {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.cards-author .cards-author-item {
+  text-align: center;
+}
+
+.cards-author .cards-author-image picture,
+.cards-author .cards-author-image img {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cards-author .cards-author-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: var(--heading-font-size-m);
+}
+
+.cards-author .cards-author-body h5 {
+  margin: 4px 0 12px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #696969;
+}
+
+.cards-author .cards-author-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.cards-author .cards-author-social a:any-link {
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.cards-author .cards-author-social a:hover {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 600px) {
+  .cards-author ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-author ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
