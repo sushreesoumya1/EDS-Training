@@ -19,10 +19,43 @@ function readDynamicConfig(block) {
 }
 
 /**
+ * Builds a category filter bar (ALL + one button per distinct category found in
+ * the entries) and wires it to show/hide cards. Stays dynamic: categories are
+ * derived from the data, so a new category appears automatically once tagged.
+ * @param {string[]} categories Distinct category labels present in the listing
+ * @param {HTMLUListElement} ul The card list to filter
+ * @returns {HTMLElement} The filter bar element
+ */
+function buildFilterBar(categories, ul) {
+  const bar = document.createElement('div');
+  bar.className = 'cards-article-filters';
+  const labels = ['All', ...categories];
+  labels.forEach((label, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = label;
+    btn.className = 'cards-article-filter';
+    if (i === 0) btn.setAttribute('aria-pressed', 'true');
+    btn.addEventListener('click', () => {
+      bar.querySelectorAll('.cards-article-filter').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      const key = label === 'All' ? '' : label.toLowerCase();
+      ul.querySelectorAll(':scope > li').forEach((li) => {
+        const match = !key || (li.dataset.category || '').toLowerCase() === key;
+        li.hidden = !match;
+      });
+    });
+    bar.append(btn);
+  });
+  return bar;
+}
+
+/**
  * Builds a single article card <li> from an index entry.
  */
 function cardFromEntry(entry) {
   const li = document.createElement('li');
+  if (entry.category) li.dataset.category = entry.category;
 
   const imageCell = document.createElement('div');
   imageCell.className = 'cards-article-image';
@@ -68,6 +101,10 @@ async function decorateDynamic(block, config) {
     entries.sort((a, b) => Number(b.lastModified || 0) - Number(a.lastModified || 0));
     if (config.limit) entries = entries.slice(0, config.limit);
     entries.forEach((entry) => ul.append(cardFromEntry(entry)));
+    // when the listing is categorised (e.g. adventures), add a filter bar built
+    // from the distinct categories actually present in the data
+    const categories = [...new Set(entries.map((e) => e.category).filter(Boolean))].sort();
+    if (categories.length > 1) block.prepend(buildFilterBar(categories, ul));
   } catch {
     // leave the block empty on failure rather than break the page
   }
