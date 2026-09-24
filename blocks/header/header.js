@@ -171,13 +171,28 @@ export default async function decorate(block) {
   // build the search form (form controls live in JS, not the plain fragment)
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
+    // lift the utility links (Sign In / locale) into a dark bar above the header
+    const utilityList = navTools.querySelector('ul');
+    if (utilityList) {
+      const utilityBar = document.createElement('div');
+      utilityBar.className = 'nav-utility';
+      const inner = document.createElement('div');
+      inner.className = 'nav-utility-inner';
+      inner.append(utilityList);
+      utilityBar.append(inner);
+      nav.dataset.hasUtility = 'true';
+      // stashed on the block; inserted above nav-wrapper below
+      block.dataset.utilityPending = 'true';
+      block.utilityBar = utilityBar;
+    }
+
     const search = document.createElement('form');
     search.className = 'nav-search';
     search.setAttribute('role', 'search');
     search.action = '/us/en/search';
     search.innerHTML = '<label class="nav-search-label" for="nav-search-input">Search</label>'
       + '<input id="nav-search-input" name="q" type="search" placeholder="Search" aria-label="Search">';
-    navTools.prepend(search);
+    navTools.append(search);
   }
 
   // hamburger for mobile
@@ -196,5 +211,11 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+
+  // insert the dark utility bar above the main nav, if one was built
+  if (block.utilityBar) {
+    block.append(block.utilityBar);
+    delete block.utilityBar;
+  }
   block.append(navWrapper);
 }
