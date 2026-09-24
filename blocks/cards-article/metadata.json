@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "visualCharacteristics": "Grid of linked article cards (4-per-row on desktop), each with an image, a category tag, a date and a title heading.",
+  "contentPattern": "Each row = [image cell | body cell with tag + date + title]. Cards are typically linked.",
+  "usage": "Article/blog listing cards with metadata, distinct from the image-only cards-gallery variant.",
+  "canonicalModel": "container",
+  "options": [],
+  "memberVariantIds": ["cards-article"]
+}

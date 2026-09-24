@@ -1,0 +1,10 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "visualCharacteristics": "White background, vertical list of expandable question/answer items using details/summary with a rotating chevron indicator.",
+  "contentPattern": "Each row = [question label cell | answer body cell]. Items collapse by default and expand on click.",
+  "usage": "FAQ / expandable Q&A list.",
+  "canonicalModel": "container",
+  "options": [],
+  "memberVariantIds": ["accordion-faq"]
+}

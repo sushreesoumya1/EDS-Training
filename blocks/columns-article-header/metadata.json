@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-article-header",
+  "baseBlock": "columns",
+  "visualCharacteristics": "White background, two-column article header. Left column is a large landscape image; right column holds a breadcrumb trail, heading and author/date/read-time metadata.",
+  "contentPattern": "One row with two cells: an image cell and a text cell (breadcrumb + heading + meta). Image-only columns are auto-detected and ordered first on mobile.",
+  "usage": "Article/case-study header pairing a hero image with title and byline metadata.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["columns-article-header"]
+}

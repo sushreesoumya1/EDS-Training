@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-gallery",
+  "baseBlock": "cards",
+  "visualCharacteristics": "Responsive grid of uniform square image tiles (4-per-row on desktop, 2 on mobile), images only with no text, borderless with rounded corners.",
+  "contentPattern": "Each row is a single cell containing one image; no card body text.",
+  "usage": "Image gallery / photo grid, distinct from the text-bearing cards-article variant.",
+  "canonicalModel": "container",
+  "options": [],
+  "memberVariantIds": ["cards-gallery"]
+}

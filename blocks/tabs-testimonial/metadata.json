@@ -1,0 +1,10 @@
+{
+  "variantName": "tabs-testimonial",
+  "baseBlock": "tabs",
+  "visualCharacteristics": "White background tabbed testimonial component. A row of selectable person cards (avatar + name + role) switches an active panel showing a large portrait, name, role and quote.",
+  "contentPattern": "Each row = [tab label cell (person avatar/name/role) | panel cell (portrait image + name + role + quote)]. First row is active by default.",
+  "usage": "Switchable testimonial/quote panels driven by a person-based tab menu.",
+  "canonicalModel": "container",
+  "options": [],
+  "memberVariantIds": ["tabs-testimonial"]
+}

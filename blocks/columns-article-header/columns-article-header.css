@@ -1,0 +1,67 @@
+/* columns-article-header -- two-column case-study header
+   Values extracted from source computed styles (wknd-trendsetters.site/about-us). */
+
+.columns-article-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* image cell: landscape 3:2, rounded corners */
+.columns-article-header .columns-article-header-img-col {
+  order: 0;
+}
+
+.columns-article-header .columns-article-header-img-col picture {
+  display: block;
+}
+
+.columns-article-header img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* text cell: heading + metadata */
+.columns-article-header > div > div {
+  order: 1;
+}
+
+.columns-article-header h2 {
+  margin: 0;
+  font-size: var(--heading-font-size-xxl);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.columns-article-header p {
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  color: var(--secondary-text-color);
+}
+
+.columns-article-header h2 + p {
+  margin-top: 16px;
+}
+
+.columns-article-header p + p {
+  margin-top: 8px;
+}
+
+@media (width >= 900px) {
+  .columns-article-header > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .columns-article-header .columns-article-header-img-col,
+  .columns-article-header > div > div {
+    order: unset;
+  }
+}
