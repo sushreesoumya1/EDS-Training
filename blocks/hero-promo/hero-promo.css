@@ -44,13 +44,13 @@
 }
 
 @media (width >= 900px) {
-  /* white panel overlaps up onto the image, left-aligned (WKND) */
+  /* white panel overlaps up onto the image, centered 83% (WKND) */
   .hero-promo .hero-promo-content {
     position: relative;
-    width: 66%;
-    max-width: 900px;
-    margin-top: -120px;
-    padding: 48px 64px 40px;
+    width: 83%;
+    max-width: 1200px;
+    margin: -120px auto 0;
+    padding: 40px 56px 44px;
     text-align: left;
     z-index: 1;
   }
