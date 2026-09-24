@@ -168,6 +168,22 @@ export default async function decorate(block) {
         }
       });
     });
+
+    // highlight the nav item for the current section (deepest matching link)
+    const here = window.location.pathname.replace(/\.html$/, '');
+    let best = null;
+    let bestLen = 0;
+    navSections.querySelectorAll('a[href]').forEach((a) => {
+      const path = new URL(a.href, window.location).pathname.replace(/\.html$/, '');
+      // section root like /us/en/adventures — match the page and its children,
+      // but not the site home (/us/en) which would match everything
+      const isHome = /\/us\/[a-z]{2}$/.test(path);
+      if (!isHome && (here === path || here.startsWith(`${path}/`)) && path.length > bestLen) {
+        best = a;
+        bestLen = path.length;
+      }
+    });
+    if (best) best.closest('li').classList.add('nav-active');
   }
 
   // build the search form (form controls live in JS, not the plain fragment)

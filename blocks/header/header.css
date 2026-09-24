@@ -368,6 +368,12 @@ header nav .nav-sections ul > li a:any-link {
   text-decoration: none;
 }
 
+/* active section highlight (WKND yellow) */
+header nav .nav-sections ul > li.nav-active a:any-link {
+  background: var(--accent-color);
+  padding: 6px 12px;
+}
+
 /* mobile drawer: full-width-flush menu items (matches WKND source) */
 header nav[aria-expanded='true'] .nav-sections ul {
   width: 100%;
