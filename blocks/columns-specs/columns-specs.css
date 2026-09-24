@@ -1,0 +1,32 @@
+.columns-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  margin: 24px 0;
+}
+
+.columns-specs .columns-specs-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.columns-specs .columns-specs-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #696969;
+}
+
+.columns-specs .columns-specs-value {
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  .columns-specs {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
