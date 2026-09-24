@@ -74,11 +74,14 @@
 
 .carousel-hero .carousel-hero-nav {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   gap: 8px;
   justify-content: center;
   padding: 16px 0;
+
+  /* let clicks fall through the empty strip to the arrows beneath it */
+  pointer-events: none;
 }
 
 .carousel-hero .carousel-hero-dot {
@@ -89,6 +92,7 @@
   border-radius: 50%;
   background: #ccc;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .carousel-hero .carousel-hero-dot[aria-selected='true'] {
@@ -97,6 +101,8 @@
 
 /* prev/next arrows — below on mobile, on the dots band (right) on desktop */
 .carousel-hero .carousel-hero-arrows {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: flex-end;
   gap: 8px;
