@@ -138,11 +138,12 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  // normalize relative nav image paths (e.g. "images/logo.svg") to root-absolute
-  // so they resolve against the site root, not the current page URL
+  // normalize bare relative nav image paths (e.g. "images/logo.svg") to root-absolute
+  // so they resolve against the site root. Leave DA-processed ("./media_...") and
+  // already-absolute/external paths alone.
   nav.querySelectorAll('img[src]').forEach((img) => {
     const src = img.getAttribute('src');
-    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
+    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/') && !src.startsWith('./')) {
       img.setAttribute('src', `/${src}`);
     }
   });
