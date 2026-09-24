@@ -217,6 +217,9 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+
+    /* override the mobile drawer's negative margin so the cluster hugs right */
+    margin: 0 0 0 auto;
   }
 
   header nav .nav-sections .nav-drop {
