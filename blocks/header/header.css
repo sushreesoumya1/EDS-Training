@@ -57,9 +57,9 @@ header nav[aria-expanded='true'] {
     padding: 0 32px;
   }
 
-  /* logo far left; nav links + search grouped to the right (WKND layout) */
-  header nav .nav-brand {
-    margin-right: auto;
+  /* logo far left; nav links + search cluster hugs the right (WKND layout) */
+  header nav .nav-sections {
+    margin-left: auto;
   }
 
   header nav[aria-expanded='true'] {
@@ -210,6 +210,9 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     visibility: visible;
     white-space: nowrap;
+
+    /* keep nav compact so it clusters right next to search (WKND) */
+    flex: 0 0 auto;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
