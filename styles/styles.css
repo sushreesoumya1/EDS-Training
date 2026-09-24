@@ -354,3 +354,43 @@ main .section.dark {
   margin: 0;
   padding: 40px 0;
 }
+
+/* breadcrumb (WKND): inline row with a yellow arrow separator */
+main .breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+main .breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+main .breadcrumb li:not(:first-child)::before {
+  content: '\25B6';
+  margin-right: 8px;
+  color: var(--accent-color);
+  font-size: 0.7em;
+}
+
+main .breadcrumb a:any-link {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main .breadcrumb a:hover {
+  color: var(--link-hover-color);
+}
+
+main .breadcrumb li:last-child {
+  color: var(--dark-color);
+}

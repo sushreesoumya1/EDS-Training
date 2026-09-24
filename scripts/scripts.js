@@ -174,12 +174,35 @@ export function removeHtmlExtension(container) {
   });
 }
 
+/**
+ * Turns an authored breadcrumb list (an ordered list of links ending in the
+ * current page title, in default content) into an inline breadcrumb nav.
+ * @param {Element} main The main container element
+ */
+function decorateBreadcrumb(main) {
+  const ol = main.querySelector(':scope > div > ol');
+  if (!ol) return;
+  const items = [...ol.children];
+  // breadcrumb heuristic: at least 2 items, all but the last are single links,
+  // and the last item is plain text (the current page)
+  const looksLikeCrumb = items.length >= 2
+    && items.slice(0, -1).every((li) => li.children.length === 1 && li.querySelector(':scope > a'))
+    && !items[items.length - 1].querySelector('a');
+  if (!looksLikeCrumb) return;
+  const nav = document.createElement('nav');
+  nav.className = 'breadcrumb';
+  nav.setAttribute('aria-label', 'Breadcrumb');
+  ol.replaceWith(nav);
+  nav.append(ol);
+}
+
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateBreadcrumb(main);
   removeHtmlExtension(main);
 }
 
