@@ -50,6 +50,12 @@
 
 .cards-article .cards-article-body p {
   margin: 0;
+
+  /* clamp description to keep cards uniform (matches WKND) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (width >= 600px) {
