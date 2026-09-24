@@ -1,0 +1,107 @@
+.carousel-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-hero .carousel-hero-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-hero .carousel-hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.carousel-hero .carousel-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carousel-hero .carousel-hero-image picture,
+.carousel-hero .carousel-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-hero .carousel-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 24px 28px 32px;
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+.carousel-hero .carousel-hero-content h2 {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+}
+
+.carousel-hero .carousel-hero-content p {
+  margin: 0 0 16px;
+}
+
+.carousel-hero .carousel-hero-content a:any-link {
+  display: inline-block;
+  padding: 14px 35px;
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.carousel-hero .carousel-hero-content a:any-link:hover {
+  background: var(--text-color);
+  color: var(--accent-color);
+}
+
+.carousel-hero .carousel-hero-nav {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.carousel-hero .carousel-hero-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid var(--background-color);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 30%);
+  cursor: pointer;
+}
+
+.carousel-hero .carousel-hero-dot[aria-selected='true'] {
+  background: var(--accent-color);
+}
+
+@media (width >= 900px) {
+  .carousel-hero .carousel-hero-slide {
+    min-height: 75vh;
+  }
+
+  .carousel-hero .carousel-hero-content {
+    width: auto;
+    max-width: 480px;
+    margin: 0 0 48px 48px;
+    padding: 32px 40px 40px;
+  }
+}

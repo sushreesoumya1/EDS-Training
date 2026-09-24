@@ -1,0 +1,45 @@
+.hero-promo .hero-promo-image picture,
+.hero-promo .hero-promo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-promo .hero-promo-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.hero-promo .hero-promo-content h2 {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+}
+
+.hero-promo .hero-promo-content p {
+  margin: 0 auto 16px;
+  max-width: 720px;
+}
+
+.hero-promo .hero-promo-content a:any-link {
+  display: inline-block;
+  padding: 14px 35px;
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-promo .hero-promo-content a:any-link:hover {
+  background: var(--text-color);
+  color: var(--accent-color);
+}
+
+@media (width >= 900px) {
+  .hero-promo .hero-promo-content {
+    padding: 40px 24px 48px;
+  }
+}

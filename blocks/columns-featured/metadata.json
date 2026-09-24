@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-featured",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Featured article band, image beside text column",
+  "contentPattern": "One row: image cell + content cell (eyebrow, heading, body, CTA)",
+  "usage": "WKND homepage columns-featured block",
+  "options": [],
+  "memberVariantIds": []
+}
