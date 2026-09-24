@@ -19,8 +19,14 @@ export default function decorate(block) {
     if (i !== 0) row.setAttribute('aria-hidden', 'true');
 
     [...row.children].forEach((cell) => {
-      if (cell.querySelector('picture')) cell.classList.add('carousel-hero-image');
-      else cell.classList.add('carousel-hero-content');
+      if (cell.querySelector('picture')) {
+        cell.classList.add('carousel-hero-image');
+      } else if (cell.textContent.trim() || cell.querySelector('a')) {
+        cell.classList.add('carousel-hero-content');
+      } else {
+        // empty content cell (image-only slide) — drop it so no white panel renders
+        cell.remove();
+      }
     });
 
     track.append(row);
