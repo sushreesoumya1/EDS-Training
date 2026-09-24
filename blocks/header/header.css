@@ -425,4 +425,19 @@ header nav[aria-expanded='true'] .nav-search {
   header nav .nav-search input {
     width: 160px;
   }
+
+  /* override the mobile-drawer full-width tools/search (nav keeps
+     aria-expanded='true' on desktop) so the search box stays compact and
+     the whole cluster hugs the right edge (WKND desktop layout) */
+  header nav[aria-expanded='true'] .nav-tools {
+    margin: 0;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  header nav[aria-expanded='true'] .nav-search {
+    padding: 0;
+  }
 }
