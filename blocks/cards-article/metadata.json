@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "canonicalModel": "container",
+  "visualCharacteristics": "Responsive grid of article cards",
+  "contentPattern": "Rows of image + body (linked heading + description)",
+  "usage": "WKND homepage cards-article block",
+  "options": [],
+  "memberVariantIds": []
+}

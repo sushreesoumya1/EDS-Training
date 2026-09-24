@@ -1,0 +1,10 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed rotating hero with overlay text and nav dots",
+  "contentPattern": "Rows of image + text (heading, body, CTA)",
+  "usage": "WKND homepage carousel-hero block",
+  "options": [],
+  "memberVariantIds": []
+}

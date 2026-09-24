@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-promo",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Promo with full-width image over centered text",
+  "contentPattern": "Image row + content row (heading, body, CTA)",
+  "usage": "WKND homepage hero-promo block",
+  "options": [],
+  "memberVariantIds": []
+}

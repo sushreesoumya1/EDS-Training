@@ -165,6 +165,7 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  margin: 0 -24px;
 }
 
 header nav .nav-sections ul {
@@ -269,4 +270,97 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+}
+
+/* search form (built in header.js) */
+header nav .nav-search {
+  display: flex;
+  align-items: center;
+}
+
+header nav .nav-search .nav-search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+header nav .nav-search input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--dark-color);
+  border-radius: 2px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+}
+
+/* WKND nav link appearance */
+header nav .nav-sections ul > li a:any-link {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+/* mobile drawer: full-width-flush menu items (matches WKND source) */
+header nav[aria-expanded='true'] .nav-sections ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header nav[aria-expanded='true'] .nav-sections ul > li {
+  width: 100%;
+  font-weight: 600;
+}
+
+header nav[aria-expanded='true'] .nav-sections ul > li a:any-link {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 24px;
+}
+
+header nav[aria-expanded='true'] .nav-tools {
+  margin: 0 -24px;
+  width: 100vw;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+header nav[aria-expanded='true'] .nav-tools ul {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 24px;
+}
+
+header nav[aria-expanded='true'] .nav-search {
+  padding: 12px 24px;
+}
+
+@media (width >= 900px) {
+  header nav .nav-sections ul > li a:any-link {
+    font-size: var(--body-font-size-xs);
+  }
+
+  header nav .nav-search input {
+    width: 160px;
+  }
 }

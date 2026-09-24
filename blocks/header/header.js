@@ -1,4 +1,3 @@
-import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -113,10 +112,19 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // load nav fragment (metadata-independent dual-fetch):
+  // /content first (localhost / aem up), then site root (DA/EDS production)
+  let resp = await fetch('/content/nav.plain.html');
+  if (!resp.ok) resp = await fetch('/nav.plain.html');
+  let fragment;
+  if (resp.ok) {
+    const html = await resp.text();
+    fragment = document.createElement('div');
+    fragment.innerHTML = html;
+  } else {
+    // fallback to the boilerplate fragment loader
+    fragment = await loadFragment('/nav');
+  }
 
   // decorate nav DOM
   block.textContent = '';
@@ -128,6 +136,15 @@ export default async function decorate(block) {
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
+  });
+
+  // normalize relative nav image paths (e.g. "images/logo.svg") to root-absolute
+  // so they resolve against the site root, not the current page URL
+  nav.querySelectorAll('img[src]').forEach((img) => {
+    const src = img.getAttribute('src');
+    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
+      img.setAttribute('src', `/${src}`);
+    }
   });
 
   const navBrand = nav.querySelector('.nav-brand');
@@ -149,6 +166,18 @@ export default async function decorate(block) {
         }
       });
     });
+  }
+
+  // build the search form (form controls live in JS, not the plain fragment)
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const search = document.createElement('form');
+    search.className = 'nav-search';
+    search.setAttribute('role', 'search');
+    search.action = '/us/en/search';
+    search.innerHTML = '<label class="nav-search-label" for="nav-search-input">Search</label>'
+      + '<input id="nav-search-input" name="q" type="search" placeholder="Search" aria-label="Search">';
+    navTools.prepend(search);
   }
 
   // hamburger for mobile
