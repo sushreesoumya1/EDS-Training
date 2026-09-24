@@ -43,10 +43,15 @@ header nav[aria-expanded='true'] {
 
   header nav {
     display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
+    align-items: center;
+    gap: 0 40px;
     max-width: 1264px;
     padding: 0 32px;
+  }
+
+  /* logo far left; nav links + search grouped to the right (WKND layout) */
+  header nav .nav-brand {
+    margin-right: auto;
   }
 
   header nav[aria-expanded='true'] {

@@ -69,28 +69,50 @@
 }
 
 .carousel-hero .carousel-hero-nav {
-  position: absolute;
-  bottom: 16px;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 2;
   display: flex;
   gap: 8px;
   justify-content: center;
+  padding: 16px 0;
 }
 
 .carousel-hero .carousel-hero-dot {
   width: 10px;
   height: 10px;
   padding: 0;
-  border: 1px solid var(--background-color);
+  border: none;
   border-radius: 50%;
-  background: rgb(0 0 0 / 30%);
+  background: #ccc;
   cursor: pointer;
 }
 
 .carousel-hero .carousel-hero-dot[aria-selected='true'] {
   background: var(--accent-color);
+}
+
+/* prev/next arrows — below on mobile, on the dots band (right) on desktop */
+.carousel-hero .carousel-hero-arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 24px 12px;
+}
+
+.carousel-hero .carousel-hero-arrow {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-hero .carousel-hero-arrow:hover {
+  color: var(--accent-color);
 }
 
 @media (width >= 900px) {
@@ -103,5 +125,11 @@
     max-width: 480px;
     margin: 0 0 48px 48px;
     padding: 32px 40px 40px;
+  }
+
+  /* pull arrows up onto the dots band, aligned right */
+  .carousel-hero .carousel-hero-arrows {
+    margin-top: -56px;
+    padding-bottom: 0;
   }
 }
