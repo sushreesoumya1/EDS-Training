@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "about-us",
+      "urls": [
+        "https://wknd-trendsetters.site/about-us"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/about-us",
+      "description": "About Us / brand story page: intro banner, case-study header, image gallery, testimonial tabs, latest-articles cards, FAQ accordion and a closing call-to-action hero.",
+      "urlPattern": "/*",
+      "blocks": [
+        {
+          "name": "hero-intro",
+          "instances": ["header.section.secondary-section .grid-layout.grid-gap-xxl"]
+        },
+        {
+          "name": "columns-article-header",
+          "instances": [".grid-layout.grid-gap-lg"]
+        },
+        {
+          "name": "cards-gallery",
+          "instances": [".grid-layout.desktop-4-column.grid-gap-sm"]
+        },
+        {
+          "name": "tabs-testimonial",
+          "instances": [".tabs-wrapper"]
+        },
+        {
+          "name": "cards-article",
+          "instances": [".grid-layout.desktop-4-column.grid-gap-md"]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [".faq-list"]
+        },
+        {
+          "name": "hero-overlay",
+          "instances": ["section.inverse-section .utility-radius-card.utility-overflow-clip"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "Intro banner",
+          "selector": ["#main-content > header.section.secondary-section"],
+          "style": "grey",
+          "blocks": ["hero-intro"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "Case-study header",
+          "selector": ["#main-content > section.section:nth-of-type(1)"],
+          "style": null,
+          "blocks": ["columns-article-header"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "Style in every snapshot gallery",
+          "selector": ["#main-content > section.section.secondary-section:nth-of-type(2)"],
+          "style": "grey",
+          "blocks": ["cards-gallery"],
+          "defaultContent": [".utility-text-align-center.utility-margin-bottom-8rem"]
+        },
+        {
+          "id": "rc4",
+          "name": "Testimonial tabs",
+          "selector": ["#main-content > section.section:nth-of-type(3)"],
+          "style": null,
+          "blocks": ["tabs-testimonial"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "Latest articles",
+          "selector": ["#main-content > section.section.secondary-section:nth-of-type(4)"],
+          "style": "grey",
+          "blocks": ["cards-article"],
+          "defaultContent": [".utility-text-align-center"]
+        },
+        {
+          "id": "rc6",
+          "name": "FAQ",
+          "selector": ["#main-content > section.section:nth-of-type(5)"],
+          "style": null,
+          "blocks": ["accordion-faq"],
+          "defaultContent": [".grid-layout.grid-gap-xxl > div:first-child"]
+        },
+        {
+          "id": "rc7",
+          "name": "Closing call-to-action",
+          "selector": ["#main-content > section.section.inverse-section"],
+          "style": null,
+          "blocks": ["hero-overlay"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

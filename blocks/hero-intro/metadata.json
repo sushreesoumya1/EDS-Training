@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-intro",
+  "baseBlock": "hero",
+  "visualCharacteristics": "Light grey background, two-column page-intro banner. Left column holds a large heading, supporting paragraph and two CTA buttons; right column holds a cluster of stacked/gridded images.",
+  "contentPattern": "One row with a text cell (heading + paragraph + CTAs) and an image cell (image cluster). Cells are auto-detected by presence of images.",
+  "usage": "Page-intro/hero banner with accompanying imagery, distinct from the full-bleed dark hero-overlay variant.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["hero-intro"]
+}

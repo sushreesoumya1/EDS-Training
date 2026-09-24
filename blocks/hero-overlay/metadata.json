@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "visualCharacteristics": "Full-bleed background image with a dark overlay and overlaid white heading, paragraph and a single CTA button. Dark/inverse closing call-to-action panel.",
+  "contentPattern": "One cell containing a background image plus heading, supporting text and CTA. Text is overlaid on the image.",
+  "usage": "Full-width closing call-to-action / hero with background imagery, distinct from the light two-column hero-intro variant.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["hero-overlay"]
+}

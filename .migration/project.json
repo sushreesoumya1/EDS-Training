@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "eds-training": {
+      "previewOrg": "sushreesoumya1",
+      "previewSite": "eds-training",
+      "contentHostUrl": "https://content.da.live/sushreesoumya1/eds-training/"
+    }
+  },
+  "features": [
+    "site-planning"
+  ]
+}

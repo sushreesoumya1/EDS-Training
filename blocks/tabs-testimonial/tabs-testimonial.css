@@ -1,0 +1,58 @@
+.tabs-testimonial .tabs-testimonial-list {
+  display: flex;
+  gap: 12px;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.tabs-testimonial .tabs-testimonial-list button {
+  flex: 1 1 200px;
+  margin: 0;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: var(--light-color);
+  color: initial;
+  line-height: unset;
+  text-align: initial;
+  text-overflow: unset;
+  overflow: unset;
+  white-space: unset;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tabs-testimonial .tabs-testimonial-list button p {
+  margin: 0;
+}
+
+.tabs-testimonial .tabs-testimonial-list button[aria-selected='true'] {
+  background-color: var(--background-color);
+  cursor: initial;
+}
+
+.tabs-testimonial .tabs-testimonial-panel {
+  margin-top: 16px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.tabs-testimonial .tabs-testimonial-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-testimonial .tabs-testimonial-panel img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+@media (width >= 900px) {
+  .tabs-testimonial .tabs-testimonial-panel {
+    grid-template-columns: minmax(0, 40%) 1fr;
+    align-items: center;
+  }
+}
