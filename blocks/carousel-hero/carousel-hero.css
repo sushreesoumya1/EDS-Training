@@ -121,10 +121,10 @@
   }
 
   .carousel-hero .carousel-hero-content {
-    width: 66%;
-    max-width: 900px;
-    margin: 0;
-    padding: 48px 64px 56px;
+    width: 83%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 56px 44px;
   }
 
   .carousel-hero .carousel-hero-content h2 {
