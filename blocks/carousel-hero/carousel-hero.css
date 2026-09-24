@@ -121,10 +121,20 @@
   }
 
   .carousel-hero .carousel-hero-content {
-    width: auto;
-    max-width: 480px;
-    margin: 0 0 48px 48px;
-    padding: 32px 40px 40px;
+    width: 66%;
+    max-width: 900px;
+    margin: 0;
+    padding: 48px 64px 56px;
+  }
+
+  .carousel-hero .carousel-hero-content h2 {
+    font-size: var(--heading-font-size-xxl);
+    margin: 0 0 20px;
+  }
+
+  .carousel-hero .carousel-hero-content p {
+    font-size: var(--body-font-size-m);
+    margin: 0 0 28px;
   }
 
   /* pull arrows up onto the dots band, aligned right */

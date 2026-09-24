@@ -122,6 +122,21 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
+/* WKND section titles: short yellow underline under default-content headings */
+main .default-content-wrapper > h2,
+main .default-content-wrapper > h3 {
+  padding-bottom: 16px;
+}
+
+main .default-content-wrapper > h2::after,
+main .default-content-wrapper > h3::after {
+  content: '';
+  display: block;
+  width: 84px;
+  margin-top: 16px;
+  border-top: 4px solid var(--accent-color);
+}
+
 p,
 dl,
 ol,
