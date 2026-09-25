@@ -10,8 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-@import url('brand.css');
-
 :root {
   /* colors */
   --background-color: #fff;
@@ -23,8 +21,8 @@
   --accent-color: #ffea00;
 
   /* fonts */
-  --body-font-family: 'Source Sans Pro', 'Helvetica Neue', helvetica, arial, sans-serif;
-  --heading-font-family: asar, georgia, 'Times New Roman', times, serif;
+  --body-font-family: 'Source Sans Pro', source-sans-pro-fallback, 'Helvetica Neue', helvetica, arial, sans-serif;
+  --heading-font-family: asar, asar-fallback, georgia, 'Times New Roman', times, serif;
 
   /* body sizes (WKND uses the same type scale on mobile and desktop) */
   --body-font-size-m: 18px;
@@ -43,17 +41,23 @@
   --nav-height: 117px;
 }
 
-/* fallback fonts */
+/* fallback fonts, metric-matched so the swap to the web fonts doesn't shift layout */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
+  font-family: source-sans-pro-fallback;
+  size-adjust: 80.77%;
+  ascent-override: 121.3%;
+  descent-override: 33.4%;
+  line-gap-override: 0%;
   src: local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  font-family: asar-fallback;
+  size-adjust: 82.73%;
+  ascent-override: 145%;
+  descent-override: 67.7%;
+  line-gap-override: 0%;
+  src: local('Georgia'), local('Times New Roman');
 }
 
 body {
