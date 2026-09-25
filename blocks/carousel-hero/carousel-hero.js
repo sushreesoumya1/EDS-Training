@@ -16,7 +16,11 @@ export default function decorate(block) {
     row.setAttribute('role', 'group');
     row.setAttribute('aria-roledescription', 'slide');
     row.setAttribute('aria-label', `${i + 1} of ${slides.length}`);
-    if (i !== 0) row.setAttribute('aria-hidden', 'true');
+    // off-screen slides are hidden from screen readers and removed from tab order
+    if (i !== 0) {
+      row.setAttribute('aria-hidden', 'true');
+      row.inert = true;
+    }
 
     [...row.children].forEach((cell) => {
       if (cell.querySelector('picture')) {
@@ -51,7 +55,9 @@ export default function decorate(block) {
   const show = (idx) => {
     const next = (idx + slides.length) % slides.length;
     slides[current].setAttribute('aria-hidden', 'true');
+    slides[current].inert = true;
     slides[next].removeAttribute('aria-hidden');
+    slides[next].inert = false;
     [...nav.children].forEach((d, di) => d.setAttribute('aria-selected', di === next ? 'true' : 'false'));
     track.style.transform = `translateX(-${next * 100}%)`;
     current = next;

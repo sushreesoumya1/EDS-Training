@@ -84,18 +84,30 @@
   pointer-events: none;
 }
 
+/* 24px tap target (WCAG target size) around a 10px visible dot */
 .carousel-hero .carousel-hero-dot {
-  width: 10px;
-  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
   padding: 0;
   border: none;
-  border-radius: 50%;
-  background: #ccc;
+  background: transparent;
   cursor: pointer;
   pointer-events: auto;
 }
 
-.carousel-hero .carousel-hero-dot[aria-selected='true'] {
+.carousel-hero .carousel-hero-dot::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.carousel-hero .carousel-hero-dot[aria-selected='true']::before {
   background: var(--accent-color);
 }
 
