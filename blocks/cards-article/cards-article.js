@@ -19,6 +19,18 @@ function readDynamicConfig(block) {
 }
 
 /**
+ * Orders index entries newest first. Ties (or a missing lastModified) fall back
+ * to reverse index order, since newly published pages are appended to the index.
+ */
+function newestFirst(entries) {
+  return entries
+    .map((entry, position) => ({ entry, position }))
+    .sort((a, b) => (Number(b.entry.lastModified) || 0) - (Number(a.entry.lastModified) || 0)
+      || b.position - a.position)
+    .map(({ entry }) => entry);
+}
+
+/**
  * Builds a category filter bar (ALL + one button per distinct category found in
  * the entries) and wires it to show/hide cards. Stays dynamic: categories are
  * derived from the data, so a new category appears automatically once tagged.
@@ -97,14 +109,13 @@ async function decorateDynamic(block, config) {
     const { data = [] } = await resp.json();
     const prefix = `${config.path}/`;
     let entries = data.filter((e) => e.path && e.path.startsWith(prefix));
-    // newest first when a lastModified field is present
-    entries.sort((a, b) => Number(b.lastModified || 0) - Number(a.lastModified || 0));
-    if (config.limit) entries = entries.slice(0, config.limit);
+    // rails (with a limit) show the newest pages; full listings keep index order
+    if (config.limit) entries = newestFirst(entries).slice(0, config.limit);
     entries.forEach((entry) => ul.append(cardFromEntry(entry)));
-    // when the listing is categorised (e.g. adventures), add a filter bar built
-    // from the distinct categories actually present in the data
+    // when a full listing is categorised (e.g. adventures), add a filter bar
+    // built from the distinct categories actually present in the data
     const categories = [...new Set(entries.map((e) => e.category).filter(Boolean))].sort();
-    if (categories.length > 1) block.prepend(buildFilterBar(categories, ul));
+    if (!config.limit && categories.length > 1) block.prepend(buildFilterBar(categories, ul));
   } catch {
     // leave the block empty on failure rather than break the page
   }
